@@ -1,0 +1,75 @@
+<h3>Create Employee</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="firstName">First Name</label>
+      <input type="email" class="form-control" id="firstName" required [(ngModel)]="employee.firstName" name="firstName">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName">
+    </div>
+  </div>
+   <div class="form-group">
+      <label for="emailId">Email Id</label>
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
+    </div>
+	<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="employeeID">Employee Id</label>
+      <input type="text" class="form-control" id="employeeID" required [(ngModel)]="employee.employeeID" name="employeeID">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="bloodGroup">Blood Group</label>
+      <select id="bloodGroup" class="form-control" id="bloodGroup" required [(ngModel)]="employee.bloodGroup" name="bloodGroup">
+        <option selected>Choose...</option>
+        <option>O-</option>
+		<option>O+</option>
+		<option>A-</option>
+		<option>A+</option>
+		<option>B-</option>
+		<option>B+</option>
+		<option>AB-</option>
+		<option>AB+</option>
+      </select>
+    </div>
+  </div>
+  
+ <div class="form-row">
+ <label for="inputPassword4">Intake of Covid Vaccine</label>
+<div class="custom-control custom-radio custom-control-inline">
+ 
+  <input name="isIntake" [(ngModel)]="employee.isIntake" type="radio" [value]="1" /> Yes 
+</div>
+<div class="custom-control custom-radio custom-control-inline">
+  <input name="isIntake" [(ngModel)]="employee.isIntake" type="radio" [value]="0" /> No
+  
+</div>
+</div>
+<div class="form-group" *ngIf="employee.isIntake == 1" >
+      <label for="name">Vaccine Location/Address</label>
+      <input type="textarea" class="form-control" id="vacAddress" required [(ngModel)]="employee.vacAddress" name="vacAddress">
+	  <div class="form-group">
+	   <label for="name">City   </label>
+	   <span> </span>
+	   <select  id="city"    [(ngModel)]="employee.city" name="city"  required class="form-group">
+        <option value="Mumbai">Mumbai</option>
+  <option value="Pune">Pune</option>
+  <option value="Delhi">Delhi</option>
+  <option value="Bangalore">Bangalore</option>
+    <option value="Ahmedabad">Ahmedabad</option>
+  <option value="Chennai">Chennai</option>
+  <option value="Kolkata">Kolkata</option>
+  <option value="Surat">Surat</option>
+    </select>
+	</div>
+    </div>
+	
+   <button type="submit" class="btn btn-success">Submit</button>
+</form>
+</div>
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>

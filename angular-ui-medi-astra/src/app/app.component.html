@@ -1,0 +1,47 @@
+
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Links -->
+  
+  <ul class="navbar-nav">
+  <img src="assets/image/logo.png" class="rounded mx-auto d-block" alt="homr image" width="100" height="40">
+    <li class="nav-item">
+        <a routerLink="employees" class="nav-link" routerLinkActive="active">Employee List</a>
+    </li>
+    <li class="nav-item">
+        <a routerLink="add" class="nav-link" routerLinkActive="active">Add Employee</a>
+    </li>
+	 <li class="nav-item">
+        <a routerLink="search" class="nav-link" routerLinkActive="active">Search</a>
+    </li>
+	<li class="nav-item">
+        <a routerLink="report" class="nav-link" routerLinkActive="active">Chart</a>
+    </li>
+	<li class="nav-item">
+        <a routerLink="helpinghand" class="nav-link" routerLinkActive="active">Request For Help</a>
+    </li>
+	<li>
+		<li class="nav-item">
+        <a routerLink="blogs" class="nav-link" routerLinkActive="active">Helalth Blogs</a>
+    </li>
+		<li>
+		<li class="nav-item">
+        <a routerLink="medihelp" class="nav-link" routerLinkActive="active">Medi Help</a>
+    </li>
+	<li class="nav-item">
+        <a routerLink="helpinghandrequestList" class="nav-link" routerLinkActive="active">Request List</a>
+    </li>
+
+  </ul>
+</nav>
+<div class="container" style="background-image=/assets/image/logo.png">
+  <br>
+  <h2 style="text-align: center;">{{title}}</h2>
+  
+  <hr>  
+  <div class="card">
+    <div class="card-body">
+  <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

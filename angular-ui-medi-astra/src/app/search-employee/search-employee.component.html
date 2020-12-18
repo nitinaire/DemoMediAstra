@@ -1,0 +1,48 @@
+
+<h3 [hidden]="submitted">Search</h3>
+ <h3 [hidden]="!submitted">Download sussessfully</h3>
+<div [hidden]="submitted" style="width: 400px;">
+   <form (ngSubmit)="onSubmit()">
+	  <div>
+	  <label for="name">Vaccine Taken</label>
+	  <input name="isIntake"  (click)="selectIntake($event)" [(ngModel)]="employee.isIntake"  type="radio" id ="idYes" [value]="true" [checked]="employee.isIntake"/> Yes
+
+    <input name="isIntake" (click)="selectIntake($event)" [(ngModel)]="employee.isIntake" type="radio" id ="idNo" [value]="false" [checked]="!employee.isIntake"/> No
+</div>
+ <div *ngIf="employee.isIntake">
+      <label for="name">City</label>
+<select  id="city"  required [(ngModel)]="employee.city" name="city" value="All" >
+<option value="Mumbai" selected>Mumbai</option>
+  <option value="Pune">Pune</option>
+  <option value="Delhi">Delhi</option>
+  <option value="Bangalore">Bangalore</option>
+    <option value="Ahmedabad">Ahmedabad</option>
+  <option value="Chennai">Chennai</option>
+  <option value="Kolkata">Kolkata</option>
+  <option value="Surat">Surat</option>
+    </select>
+     <!-- <input type="text" class="form-control" id="city" required [(ngModel)]="employee.city" name="city">-->
+</div>
+    <!--  <div *ngIf="employee.isIntake || !employee.isIntake">
+      <button type="submit" class="btn btn-success">Download Result as PDF</button>
+	  </div>-->
+	  <div [hidden]="showAll">
+	   <button type="submit" class="btn btn-success"  >Download Result in PDF</button>
+	   </div>
+	  <div >
+	    <div [hidden]="!showAll">
+		 <button type="submit" class="btn btn-success">Download All data in PDF</button>
+     
+	  </div>
+	  </div>
+   <div [hidden]="!submitted"> </div>
+
+  
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+
+   </form>
+
+   
+   </div>
+   
+   
