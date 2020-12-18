@@ -2,7 +2,6 @@ import { EmployeeService } from '../employee.service';
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { Router } from '@angular/router';
-import {Chart} from 'chart.js';
 
 @Component({
   selector: 'app-report-employee',
@@ -11,55 +10,45 @@ import {Chart} from 'chart.js';
 })
 export class ReportEmployeeComponent implements OnInit {
 
-	Employee = [];
-		stat1: any;
-		Linechart =[];
-	
-		
-  constructor(private employeeService: EmployeeService,
-    private router: Router) {
-}
+	stat1: any;
+	data0:any;
+	data1:any;
 
-
-
-  ngOnInit(): void {
-	
-	this.employeeService.getAllEmployeesReport().subscribe(result => {
-      console.log(result);
-	  this.stat1 = result;
-	  const data0 = [ this.stat1[0]];
-	const data1 = [ this.stat1[1]];
-	console.log(data0);
-	  
-this.Employee = new Chart('canvas', {
-          type: 'pie',
-          data: {  
-          labels: ["intake","No"], 
-​
-          datasets: [{
-            data: data0,
-            backgroundColor: 'rgba(28,181, 284, 0.6)',
-			borderColor: 'rgba(220,220,220,2)',
-			borderWidth: 2,
-            },{
-			data: data1,
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-			borderColor: 'rgba(151,187,205,1)',
-			borderWidth: 2,
-
-		}] 
-        },  
-        options: { 
-			title:{
-				text:"PIECHART",
-				display:true
-			},
+	constructor(private employeeService: EmployeeService,
+	private router: Router) {
 		}
-	});	
-	});	
-    }
+
+	ngOnInit(): void {
+		this.employeeService.getAllEmployeesReport().subscribe(result => {
+		this.stat1 = result;
+		this.data0 = [ this.stat1[0]];
+		this.data1 = [ this.stat1[1]];
+		this.pieChartData= [parseInt(this.data0), parseInt(this.data1)];
+		});
+	}
 	
-	public chartOptions: any = {
-    responsive: true
-  };
+	pieChartOptions: any = {
+					responsive: true,
+					legend: {
+							position: 'top',
+						},
+					tooltips: {
+							enabled: true,
+							mode: 'single',
+						},
+					};
+
+	pieChartLabels: String[] = ['Vaccine taken count of employee', 'Vaccine not taken count of employee'];
+
+	pieChartData: number[] = [0,0];
+
+	pieChartType: String = 'pie';
+
+	pieChartLegend = true;
+
+	pieChartPlugins = [];
+
+	pieChartColors = [{backgroundColor: ['rgba(0,255,0,3)', 'rgba(250,0,0)'],},];
+
+
 }

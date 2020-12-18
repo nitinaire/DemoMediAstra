@@ -1,8 +1,13 @@
-
-<h4 style="text-align:center">Pie Chart For Corona vaccines intake Empoyees..</h4>
-
-<div class="chart-container" style="position: relative; height:100%; width:100%">
-
-<canvas id="canvas"></canvas>
-
+<div class="chart-container">
+<h4 style="text-align:center">Pie Chart For Corona Vaccines Intake</h4>
+<canvas baseChart
+	[data]="pieChartData"
+	[labels]="pieChartLabels"
+	[chartType]="pieChartType"
+	[options]="pieChartOptions"
+	[colors]="pieChartColors"
+	[legend]="pieChartLegend">
+</canvas>
 </div>
+
+

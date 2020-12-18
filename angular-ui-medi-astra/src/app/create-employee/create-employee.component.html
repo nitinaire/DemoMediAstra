@@ -50,8 +50,9 @@
 <div class="form-group" *ngIf="employee.isIntake == 1" >
       <label for="name">Vaccine Location/Address</label>
       <input type="textarea" class="form-control" id="vacAddress" required [(ngModel)]="employee.vacAddress" name="vacAddress">
+      <br>
 	  <div class="form-group">
-	   <label for="name">City   </label>
+	   <label for="name">City </label>
 	   <span> </span>
 	   <select  id="city"    [(ngModel)]="employee.city" name="city"  required class="form-group">
         <option value="Mumbai">Mumbai</option>
